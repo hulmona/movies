@@ -28,23 +28,16 @@ from urllib.parse import quote_plus
 from Jisshu.util.file_properties import get_name, get_hash, get_media_file_size
 logger = logging.getLogger(__name__)
 logger.setLevel(logging.ERROR)
-# ] codes 
-@Client.on_message(filters.private & filters.text & filters.incoming)
+# ]
+
+from pyrogram import Client, filters
+
+@Client.on_message(filters.private & filters.text)
 async def pm_search(client, message):
-    await mdb.update_top_messages(message.from_user.id, message.text)
-
-    bot_id = client.me.id
-    user_id = message.from_user.id
-
-    if str(message.text).startswith('/'):
+    if str(message.text).startswith("/"):
         return
 
-    if await db.get_pm_search_status(bot_id):
-        return await auto_filter(client, message)
-    else:
-        return await auto_filter(client, message)
-
-
+    await auto_filter(client, message)
 
 @Client.on_message(filters.group & filters.text & filters.incoming)
 async def group_search(client, message):
@@ -1658,6 +1651,7 @@ async def advantage_spell_chok(message):
         await message.delete()
     except:
         pass
+
 
 
 
