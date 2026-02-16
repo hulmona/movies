@@ -32,9 +32,11 @@ logger.setLevel(logging.ERROR)
 
 from pyrogram import Client, filters
 
-@Client.on_message(filters.private)
-async def pm_test(client, message):
-    await message.reply("PM WORKING")
+# pm_test remove
+
+@Client.on_message(filters.group & filters.text)
+async def group_search(client, message):
+    ...
 
 @Client.on_message(filters.group & filters.text & filters.incoming)
 async def group_search(client, message):
@@ -1648,6 +1650,7 @@ async def advantage_spell_chok(message):
         await message.delete()
     except:
         pass
+
 
 
 
