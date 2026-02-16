@@ -40,7 +40,10 @@ async def invite(client, message):
 
 @Client.on_message(filters.command("start") & filters.incoming)
 async def start(client:Client, message):
-    await message.react(emoji=random.choice(REACTIONS), big=True)
+    try:
+        await message.react(emoji=random.choice(REACTIONS), big=True)
+    except:
+        pass
     pm_mode = False
     try:
          data = message.command[1]
@@ -1057,3 +1060,4 @@ async def verifyon(bot, message):
     
     await save_group_settings(grpid, 'is_verify', True)
     return await message.reply_text("Verification successfully enabled.")
+
