@@ -33,18 +33,20 @@ logger.setLevel(logging.ERROR)
 
 @Client.on_message(filters.private & filters.text & filters.incoming)
 async def pm_search(client, message):
-    await mdb.update_top_messages(message.from_user.id, message.text)
+  await mdb.update_top_messages(message.from_user.id, message.text)
+
     bot_id = client.me.id
-    user_id = message.from_user.id    
- #   if user_id in ADMINS: return
+    user_id = message.from_user.id
+
     if str(message.text).startswith('/'):
         return
-if await db.get_pm_search_status(bot_id):
-    if 'hindi' in message.text.lower() or 'tamil' in message.text.lower() or 'telugu' in message.text.lower() or 'malayalam' in message.text.lower() or 'kannada' in message.text.lower() or 'english' in message.text.lower() or 'gujarati' in message.text.lower() or 'bengali' in message.text.lower() or 'bangla' in message.text.lower():
-        return await auto_filter(client, message)
-    await auto_filter(client, message)
-else:
-    await auto_filter(client, message)
+
+    if await db.get_pm_search_status(bot_id):
+        if 'hindi' in message.text.lower() or 'tamil' in message.text.lower() or 'telugu' in message.text.lower() or 'malayalam' in message.text.lower() or 'kannada' in message.text.lower() or 'english' in message.text.lower() or 'gujarati' in message.text.lower() or 'bengali' in message.text.lower() or 'bangla' in message.text.lower():
+            return await auto_filter(client, message)
+        await auto_filter(client, message)
+    else:
+        await auto_filter(client, message)  
 
 
 @Client.on_message(filters.group & filters.text & filters.incoming)
@@ -1659,5 +1661,6 @@ async def advantage_spell_chok(message):
         await message.delete()
     except:
         pass
+
 
 
