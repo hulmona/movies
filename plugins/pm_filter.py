@@ -32,14 +32,9 @@ logger.setLevel(logging.ERROR)
 
 from pyrogram import Client, filters
 
-@Client.on_message(filters.private & filters.text)
-async def pm_search(client, message):
-    if str(message.text).startswith("/"):
-        return
-
-    await auto_filter(client, message)
-
-
+@Client.on_message(filters.private)
+async def pm_test(client, message):
+    await message.reply("PM WORKING")
 
 @Client.on_message(filters.group & filters.text & filters.incoming)
 async def group_search(client, message):
@@ -1653,6 +1648,7 @@ async def advantage_spell_chok(message):
         await message.delete()
     except:
         pass
+
 
 
 
