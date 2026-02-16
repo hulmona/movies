@@ -44,6 +44,8 @@ async def start(client:Client, message):
         await message.react(emoji=random.choice(REACTIONS), big=True)
     except:
         pass
+        await message.reply("Bot working ✅")
+    return
     pm_mode = False
     try:
          data = message.command[1]
@@ -1060,4 +1062,5 @@ async def verifyon(bot, message):
     
     await save_group_settings(grpid, 'is_verify', True)
     return await message.reply_text("Verification successfully enabled.")
+
 
