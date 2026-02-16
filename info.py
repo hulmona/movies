@@ -18,10 +18,10 @@ API_HASH = environ.get('API_HASH', '327b2592682ff56d760110350e66425e')
 BOT_TOKEN = environ.get('BOT_TOKEN', '8298490569:AAGOm3fAOhqBxmvwsB2lrF-mCmvqbG3D7Fo')
 #---------------------------------------------------------------
 #---------------------------------------------------------------
-ADMINS = [int(admin) if id_pattern.search(admin) else admin for admin in environ.get('ADMINS', '5016109398').split()]
+ADMINS = [int(admin) if id_pattern.search(admin) else admin for admin in environ.get('ADMINS', '7916138581').split()]
 USERNAME = environ.get('USERNAME', "https://t.me/TirX_01") # ADMIN USERNAME
-LOG_CHANNEL = int(environ.get('LOG_CHANNEL', '-1002190681742'))
-MOVIE_GROUP_LINK = environ.get('MOVIE_GROUP_LINK', 'https://t.me/+K2kgCBgaat80YWQ9')
+LOG_CHANNEL = int(environ.get('LOG_CHANNEL', '-1003755299981'))
+MOVIE_GROUP_LINK = environ.get('MOVIE_GROUP_LINK', 'https://t.me/movieniverse')
 CHANNELS = [int(ch) if id_pattern.search(ch) else ch for ch in environ.get('CHANNELS', '-1003344239116').split()]
 #---------------------------------------------------------------
 #---------------------------------------------------------------
